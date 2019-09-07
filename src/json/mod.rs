@@ -8,7 +8,7 @@ pub struct VrmJson {
     exporter_version: Option<String>,
     meta: VrmMeta,
     humanoid: VrmHumanoid,
-    first_persion: VrmFirstPerson,
+    first_person: VrmFirstPerson,
     blend_shape_master: VrmBlendShape,
     secondary_animation: VrmSecondaryAnimation,
     material_properties: Vec<VrmMaterial>,
@@ -35,12 +35,11 @@ pub struct VrmMeta {
     #[serde(rename = "commercialUssageName")]
     allow_commercial_use: VrmAllowFlag,
     other_permission_url: Option<String>,
-    licensed_name: VrmLicenseType,
+    license_name: VrmLicenseType,
     other_license_url: Option<String>,
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub enum VrmAllowedUser {
     OnlyAuthor,
     ExplicitlyLicensedPerson,
@@ -48,14 +47,12 @@ pub enum VrmAllowedUser {
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub enum VrmAllowFlag {
     Allow,
     Disallow,
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub enum VrmLicenseType {
     #[serde(rename = "Redistribution_Prohibited")]
     NoRedist,

@@ -22,5 +22,10 @@ fn main() {
     let vrm_file = "Victoria_Rubin.vrm";
 
     let model = gltf::Gltf::open(vrm_file).unwrap();
-    println!("{:?}", model);
+
+    for k in model.extensions_used() {
+        println!("{:?}", k);
+    }
+
+    println!("{:?}", model.extension::<json::VrmJson>("VRM"));
 }
